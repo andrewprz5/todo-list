@@ -24,21 +24,44 @@ class Project {
         return this.name;
     }
 
-    getDate() {
-        return this.deadline;
+    formatDate() {
+        const date = this.deadline;
+        
+        const month = String(date.getMonth() + 1).padStart(2, '0'); // Months are zero-based
+        const day = String(date.getDate()).padStart(2, '0');
+        const year = date.getFullYear();
+
+        const formatted = `${month}/${day}/${year}`;
+
+        return formatted;
     }
 
     getChecklist() {
         return this.checklist;
     }
 
+    elements() {
+        const projectName = document.createElement("h3");
+        projectName.textContent = this.name;
+        const projectDescription = document.createElement("p");
+        projectDescription.textContent = this.description;
+        const projectDeadline = document.createElement("p");
+        projectDeadline.textContent = this.formatDate();
+        // create elemenets for DOM
+    }
+
 };
 
-const defaultProject = new Project ('Default', 'First Project', new Date(), 'High', ['First Task', 'Second Task', 'Third Task'], '');
+const defaultProject = new Project('Default', 'First Project', new Date(), 'High', ['First Task', 'Second Task', 'Third Task'], '');
  // can change/toggle/implement anytime
 console.log(defaultProject.getName());
-console.log(defaultProject.getDate());
+console.log(defaultProject.formatDate());
 console.log(defaultProject.getChecklist());
+
+const projectDashboard = document.createElement("div");
+projectDashboard.append(defaultProject.elements());
+document.querySelector(".main").appendChild(projectDashboard);
+
 
 function createNewProject() {
     //enter project

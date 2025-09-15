@@ -37,6 +37,13 @@ li {
     cursor: pointer;
 }
 
+.arrow-icon {
+    position: relative;
+    bottom: 3px;
+}
+
+
+
 button {
     margin-left: 50px;
     background: none;
@@ -46,41 +53,3 @@ button {
     cursor: pointer;
 }
 
-.tree, .tree ul {
-    margin: 0;
-    padding-left: 50px;
-    position: relative;
-}
-
-.tree li {
-    margin: 0;
-    padding: 5px 0;
-    position: relative
-}
-
-/* vertical line */
-.tree li::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -10px; /* adjust to align with parent */
-  bottom: 0;
-  width: 1px;
-  background: white;
-}
-
-/* horizontal branch */
-.tree li::after {
-  content: '';
-  position: absolute;
-  top: 12px; /* halfway down the li */
-  left: -10px; /* same as vertical line */
-  width: 10px;
-  height: 1px;
-  background: white;
-}
-
-/* Remove vertical line from root */
-.tree > li::before {
-  display: none;
-}
