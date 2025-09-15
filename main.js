@@ -43,7 +43,7 @@ console.log(defaultProject.getChecklist());
 function createNewProject() {
     //enter project
     //add project button on screen
-    var btn = document.getElementById("add-project");
+    var btn = document.getElementById("new-project");
 
     btn.addEventListener("click", function() {
         const projectDashboard = document.createElement("div");
